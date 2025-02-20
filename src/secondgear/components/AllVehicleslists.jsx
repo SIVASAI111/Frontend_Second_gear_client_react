@@ -11,13 +11,14 @@ import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 import { Autoplay } from "swiper/modules";
-
+import Loader from "./Loader";
 
 const AllVehicleslists = () => {
   const [vehiclesData, setvehiclesData] = useState([]);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   
   const handleSearch = () => {
     const matchedvehicles = vehiclesData.filter((vehicles) =>
@@ -48,6 +49,7 @@ const AllVehicleslists = () => {
   
   useEffect(() => {
     const vendorFirmHandler = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(`${API_URL}/vehicle/all-vehicles`);
         const ApiFetchData = await response.json();
@@ -56,6 +58,8 @@ const AllVehicleslists = () => {
       } catch (error) {
         alert("Failed to fetch data");
         console.error("Fetch error:", error);
+      }finally {
+        setIsLoading(false); 
       }
     };
     vendorFirmHandler();
@@ -84,6 +88,10 @@ const AllVehicleslists = () => {
       <Sidebar />
       
       </div> 
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
     
       <section className="showroomsSlidingWindow">
       
@@ -203,7 +211,8 @@ const AllVehicleslists = () => {
     ))}
   </div>
 </section>
-
+</>
+)}
 
       </>
   );

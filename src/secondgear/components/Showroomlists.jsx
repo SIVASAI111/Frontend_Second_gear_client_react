@@ -13,13 +13,14 @@ import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 import { Autoplay } from "swiper/modules";
-
+import Loader from "./Loader";
 
 const Showroomlists = () => {
   const [firmData, setFirmData] = useState([]);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   
   const handleSearch = () => {
@@ -49,6 +50,7 @@ const Showroomlists = () => {
 
   useEffect(() => {
     const vendorFirmHandler = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(`${API_URL}/firm/all-firms`);
         const ApiFetchData = await response.json();
@@ -57,6 +59,8 @@ const Showroomlists = () => {
       } catch (error) {
         alert("Failed to fetch data");
         console.error("Fetch error:", error);
+      }finally {
+        setIsLoading(false); 
       }
     };
     vendorFirmHandler();
@@ -89,9 +93,13 @@ const Showroomlists = () => {
       <Sidebar />
       
       </div> 
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
     
       <section className="showroomsSlidingWindow">
-      
+
       <h1>TOP SHOWROOMS</h1>
        <video autoPlay loop muted className="background-video">
         <source src="videos/backgroundvideo.mp4" type="video/mp4" />
@@ -209,6 +217,8 @@ const Showroomlists = () => {
     ))}
   </div>
 </section>
+
+</>)}
 
 
       </>

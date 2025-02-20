@@ -1561,3 +1561,67 @@ ul li {
     font-size: 16px;
   }
 }
+
+
+
+
+/* Loader Container */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Car Loader GIF */
+.car-loader img {
+  width: 50%;
+  height: auto;
+  animation: bounce 1.5s infinite;
+}
+
+/* Loading Text */
+.car-loader h1 {
+  color: white;
+  font-size: 2rem;
+  margin-top: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 📱 Responsive Styling */
+@media (max-width: 768px) {
+  .car-loader img {
+    width: 50%;
+  }
+  .car-loader h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .car-loader img {
+    width: 80%;
+  }
+  .car-loader h1 {
+    font-size: 1.2rem;
+  }
+}
