@@ -11,7 +11,7 @@ import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 import { Autoplay } from "swiper/modules";
-import Navbar from "./navbar";
+
 
 const AllVehicleslists = () => {
   const [vehiclesData, setvehiclesData] = useState([]);
@@ -86,7 +86,7 @@ const AllVehicleslists = () => {
       </div> 
     
       <section className="showroomsSlidingWindow">
-      {/* <Navbar/> */}
+      
       <h1>TOP VEHICLES LISTS</h1>
        <video autoPlay loop muted className="background-video">
         <source src="videos/vehiclesbackgroundvideo.mp4" type="video/mp4" />

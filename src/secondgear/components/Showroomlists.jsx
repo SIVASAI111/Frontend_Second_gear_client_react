@@ -13,7 +13,7 @@ import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
 import { Autoplay } from "swiper/modules";
-import Navbar from "./navbar";
+
 
 const Showroomlists = () => {
   const [firmData, setFirmData] = useState([]);
