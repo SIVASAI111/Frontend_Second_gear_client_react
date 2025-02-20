@@ -1,5 +1,5 @@
 import React ,{useState,useEffect} from 'react'
-import Navbar from '../components/navbar'
+import Navbar from '../components/Navbar'gi
 import Sidebar from '../components/Sidebar'
 import Homepageanimation from '../components/Homepageanimation'
 import Contact from '../components/Contact'
