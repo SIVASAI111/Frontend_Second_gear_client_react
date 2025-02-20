@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import Navbar from './navbar';
+
 function Contact() {
   return (
     // // contact section styling starts from line 1233 in app.css
